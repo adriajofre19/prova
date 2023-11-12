@@ -17,9 +17,9 @@ class Users {
         }
     }
 
-    public function getAll($id){
-        $stm = $this->sql->prepare("select * from usuaris where id = :id;");
-        $stm->execute([':id' => $id]);
+    public function getAll($userId){
+        $stm = $this->sql->prepare("select * from users where id = :user_id;");
+        $stm->execute([':user_id' => $userId]);
         
         $tasks = array();
         while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
@@ -41,18 +41,6 @@ class Users {
         }
     }
 
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
 
 
 
