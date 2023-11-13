@@ -34,14 +34,6 @@
                   <div id="emailHelp" class="form-text"></div>
               </div>
               <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label h6">Telèfon</label>
-                  <input name="telefon" type="tel" class="form-control" id="input">
-              </div>
-              <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label h6>Nº de Targeta</label>
-                  <input name="card" type="text" class="form-control" id="input">
-              </div>
-              <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label h6">Usuari</label>
                   <input name="user" type="text" class="form-control" id="input">
               </div>
@@ -51,7 +43,7 @@
               </div>
               <button type="submit" class="btn btn-primary">Enviar</button>
           </form>
-          <a h6ef="index.ph6?r=login" class="return">Ja tens usuari, inicia sessió aqui</a>
+          <a h6ef="index.php?r=login" class="return">Ja tens usuari, inicia sessió aqui</a>
       </div>
   </div>
 </body>

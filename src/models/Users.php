@@ -41,6 +41,17 @@ class Users {
         }
     }
 
+    public function addUser($nom,$cognoms,$email,$user,$pass) {
+        $stm = $this->sql->prepare('insert into users (nom, cognoms, email, user, pass) values (:nom, :cognoms,:email, :user, :pass);');
+        $result = $stm->execute([
+            ':nom' => $nom, 
+            ':cognoms' => $cognoms, 
+            ':email' => $email, 
+            ':user' => $user, 
+            ':pass' => $pass 
+        ]);
+    }
+
 
 
 

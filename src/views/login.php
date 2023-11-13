@@ -16,13 +16,13 @@
   <form class="form-registrar" action="index.php" method="post">
     <input type="hidden" name="r" value="dologin">
     <div class="mb-3">
-      <label for="exampleInputName1" class="form-label">Usuari</label>
-      <input name="usuari" type="text" class="form-control" id="input" aria-describedby="emailHelp">
+      <label class="form-label">Usuari</label>
+      <input name="user" type="text" class="form-control" id="input" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text"></div>
     </div>
     <div class="mb-3">
       <label for="exampleInputLastName1" class="form-label">Contrasenya</label>
-      <input name="contrasenya" type="password" class="form-control" id="input" aria-describedby="emailHelp">
+      <input name="pass" type="password" class="form-control" id="input" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text"></div>
     </div>
     <button type="submit" class="btn btn-primary w-100 button_2">Enviar</button>
