@@ -41,9 +41,36 @@
     <a href="index.php?r=register"><button class="btn btn-primary">Apunta't a l'excursió</button></a>
 </div>
 
+<!-- Modal de Política de Cookies -->
+<div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cookieModalLabel">Política de Cookies</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Aquest lloc web utilitza cookies per millorar l'experiència de l'usuari. En navegar per aquest lloc, accepteu l'ús de cookies de conformitat amb la nostra <a href="politica_cookies.html">Política de Cookies</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Acceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   
   <script src="script/script.js"></script>
+  <script>
+  // Mostra el modal de política de cookies quan la pàgina es carregui completament
+  document.addEventListener('DOMContentLoaded', function () {
+    var cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
+    cookieModal.show();
+  });
+</script>
+
 <footer>
 <?php include 'footer.php' ?>
 </footer>
