@@ -1,23 +1,18 @@
 <?php
 
+session_start();
+
 function ctrlDoLogin($request, $response, $container){
 
-    $taskModel = $container->users();
-    $user = $request->get(INPUT_POST, "user");
     $pass = $request->get(INPUT_POST, "pass");
 
-    $taskModel = $taskModel->login($user, $pass);
-
-    if ($taskModel) {
-    $_SESSION['user'] = $taskModel;
+    
+    if ($pass == '1234') {
     $_SESSION['logged'] = true;
-    $response->redirect("location: index.php");
+    $response->redirect("location: index.php?r=consulta");
     } else {
     $response->redirect("location: index.php?r=login");
-    } 
+    }
 
-    return $response;
-
-    $response->redirect("location: index.php?r=adminpanel");
     return $response;
 }

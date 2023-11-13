@@ -11,13 +11,9 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
       <div class="shadow-form text-center form-dades">
           <a href="index.php?r=index"><img src="images/logo.png" alt="" style="width: 20%;"></a>
-          <h1 class="account">Crea un compte</h1>
-          <form class="form-registrar" action="index.php" method="post">
+          <h1 class="account">Apunta't a l'excursió</h1>
+          <form class="form-registrar" action="index.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="r" value="doregister">
-              <div class="mb-3">
-                  <input value="usuari" name="rol" type="hidden" class="form-control" id="input" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text"></div>
-              </div>
               <div class="mb-3">
                   <label for="exampleInputName1" class="form-label h6">Nom</label>
                   <input name="nom" type="text" class="form-control" id="input" aria-describedby="emailHelp">
@@ -29,20 +25,22 @@
                   <div id="emailHelp" class="form-text"></div>
               </div>
               <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label h6">Email</label>
-                  <input name="email" type="email" class="form-control" id="input" aria-describedby="emailHelp">
+                  <label for="exampleInputEmail1" class="form-label h6">Data de naixament</label>
+                  <input name="data_naix" type="date" class="form-control" id="input" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text"></div>
               </div>
               <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label h6">Usuari</label>
-                  <input name="user" type="text" class="form-control" id="input">
+                  <label for="exampleInputPassword1" class="form-label h6">Adreça</label>
+                  <input name="adreca" type="text" class="form-control" id="input" placeholder="Carrer, número, ciutat i codi postal">
               </div>
-              <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label h6">Contrasenya</label>
-                  <input name="pass" type="text" class="form-control" id="input">
+              <div>
+                <label for="exampleInputPassword1" class="form-label h6">Resguard de pagament</label>
+                <input type="file" name="resguard" id="resguard" accept="image/jpeg" class="form-control container-m10" accept=".pdf, .jpg, .jpeg, .png">
               </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="submit" class="btn btn-primary">Apuntar-se</button>
           </form>
+
+           
           <a h6ef="index.php?r=login" class="return">Ja tens usuari, inicia sessió aqui</a>
       </div>
   </div>

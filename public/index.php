@@ -9,10 +9,18 @@ include "../src/controllers/register.php";
 include "../src/controllers/doLogin.php";
 include "../src/controllers/doRegister.php";
 include "../src/controllers/doLogout.php";
+include "../src/controllers/confirm.php";
+include "../src/controllers/consulta.php";
+include "../src/controllers/validar.php";
+
+
+
 include "../src/middleware/isLogged.php";
+
 include "../src/Emeset/Container.php";
 include "../src/Emeset/Request.php";
 include "../src/Emeset/Response.php";
+
 
  $request = new \Emeset\Request();
  $response = new \Emeset\Response();
@@ -47,7 +55,19 @@ if($r == "") {
   $response = ctrlDoRegister($request, $response, $container);
   $response->response();
 
-} 
+} elseif($r == "confirm") {
+  $response = ctrlConfirm($request, $response, $container);
+  $response->response();
+
+} elseif($r == "consulta") {
+  $response = isLogged($request, $response, $container, "ctrlConsulta");
+  $response->response();
+
+} elseif($r == "validar") {
+  $response = ctrlValidar($request, $response, $container);
+  $response->response();
+
+}
  else {
      $response = ctrlLogin($request, $response, $container);
        $response->response();

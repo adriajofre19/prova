@@ -41,15 +41,30 @@ class Users {
         }
     }
 
-    public function addUser($nom,$cognoms,$email,$user,$pass) {
-        $stm = $this->sql->prepare('insert into users (nom, cognoms, email, user, pass) values (:nom, :cognoms,:email, :user, :pass);');
+    public function addUser($nom,$cognoms,$data_naix,$adreca) {
+        $stm = $this->sql->prepare('insert into users (nom, cognoms, data_naix, adreca) values (:nom, :cognoms, :data_naix, :adreca);');
         $result = $stm->execute([
             ':nom' => $nom, 
             ':cognoms' => $cognoms, 
-            ':email' => $email, 
-            ':user' => $user, 
-            ':pass' => $pass 
+            ':data_naix' => $data_naix,
+            ':adreca' => $adreca
         ]);
+    }
+
+    public function getLastUser(){
+        $stm = $this->sql->prepare('select * from users order by id desc limit 1;');
+        $stm->execute();
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+        
+        return $result;
+    }
+
+    public function getAllUsers(){
+        $stm = $this->sql->prepare('select * from users;');
+        $stm->execute();
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        
+        return $result;
     }
 
 
