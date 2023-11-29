@@ -1,6 +1,11 @@
 
 new DataTable('#example');
 
+document.addEventListener('DOMContentLoaded', function () {
+    var cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
+    cookieModal.show();
+  });
+
 $(document).ready(function(){
     $("#obrir").click(function(){
         console.log("hola");
