@@ -87,6 +87,11 @@
 
 
 
+
+<footer>
+<?php include 'footer.php' ?>
+</footer>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
@@ -104,7 +109,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "POST",
-            url: "validar_codi.php", // Estableix la ruta correcta cap al teu script PHP de validació
+            url: "index.php?r=validar", // Estableix la ruta correcta cap al teu script PHP de validació
             data: { codi: codiIntroduit },
             success: function(result) {
                 if (result === "ok") {
@@ -119,9 +124,5 @@ $(document).ready(function(){
     }); 
   });
 </script>
-<footer>
-<?php include 'footer.php' ?>
-</footer>
-
 </body>
 </html>

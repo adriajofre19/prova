@@ -11,7 +11,7 @@ include "../src/controllers/doRegister.php";
 include "../src/controllers/doLogout.php";
 include "../src/controllers/confirm.php";
 include "../src/controllers/consulta.php";
-include "../src/controllers/validar.php";
+include "../src/controllers/validar_codi.php";
 
 
 
@@ -64,7 +64,7 @@ if($r == "") {
   $response->response();
 
 } elseif($r == "validar") {
-  $response = ctrlValidar($request, $response, $container);
+   ctrlValidar($request, $response, $container);
   $response->response();
 
 }
