@@ -1,24 +1,31 @@
 
 new DataTable('#example');
 
-function validatePassword() {
-    var password = document.getElementById('password').value;
+$(document).ready(function(){
+    $("#obrir").click(function(){
+        console.log("hola");
+      $("#modalConsulta").show();
+    }); 
+    $("#validarCodi").click(function() {
+        var codiIntroduit = $("#codi").val();
+        console.log(codiIntroduit);
 
-    $.ajax({
-        type: 'POST',
-        url: 'index.php',
-        data: { password: password },
-        success: function (response) {
-            if (response === 'success') {
-                // Redirigeix a la pàgina de consultes si la validació és correcta
-                window.location.href = 'consulta.php';
-            } else {
-                // Mostra un missatge d'error si la validació falla
-                alert('Contrasenya incorrecta');
+        $.ajax({
+            type: "POST",
+            url: "validar_codi.php", // Estableix la ruta correcta cap al teu script PHP de validació
+            data: { codi: codiIntroduit },
+            success: function(result) {
+                if (result === "ok") {
+                    // Si la validació és correcta, redirigeix a la pàgina de consulta
+                    window.location.href = "index.php?r=consulta";
+                } else {
+                    // Si la validació no és correcta, mostra un missatge d'error o fes alguna acció
+                    alert("Codi incorrecte. Torna-ho a provar.");
+                }
             }
-        }
-    });
-}
+        });
+    }); 
+  });
 
 
   

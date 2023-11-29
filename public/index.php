@@ -60,7 +60,7 @@ if($r == "") {
   $response->response();
 
 } elseif($r == "consulta") {
-  $response = isLogged($request, $response, $container, "ctrlConsulta");
+  $response = ctrlConsulta($request, $response, $container);
   $response->response();
 
 } elseif($r == "validar") {
