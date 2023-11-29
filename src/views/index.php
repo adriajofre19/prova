@@ -7,6 +7,7 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <body>
     <header>
         <?php include 'header.php' ?>
@@ -60,17 +61,64 @@
 </div>
 
 
+<div class="modal" id="modalConsulta" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cookieModalLabel">Codi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="codi">Introdueix el codi:</label>
+        <input type="text" id="codi">
+        </div>
+        <div class="modal-footer">
+        <button id="validarCodi" type="button" class="btn btn-primary">Validar el codi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   
-  <script src="script/script.js"></script>
-  <script>
-  // Mostra el modal de política de cookies quan la pàgina es carregui completament
+  
+
+
+
+
+
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     var cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
     cookieModal.show();
   });
-</script>
 
+$(document).ready(function(){
+    $("#obrir").click(function(){
+        console.log("hola");
+      $("#modalConsulta").show();
+    }); 
+    $("#validarCodi").click(function() {
+        var codiIntroduit = $("#codi").val();
+        console.log(codiIntroduit);
+
+        $.ajax({
+            type: "POST",
+            url: "validar_codi.php", // Estableix la ruta correcta cap al teu script PHP de validació
+            data: { codi: codiIntroduit },
+            success: function(result) {
+                if (result === "ok") {
+                    // Si la validació és correcta, redirigeix a la pàgina de consulta
+                    window.location.href = "index.php?r=consulta";
+                } else {
+                    // Si la validació no és correcta, mostra un missatge d'error o fes alguna acció
+                    alert("Codi incorrecte. Torna-ho a provar.");
+                }
+            }
+        });
+    }); 
+  });
+</script>
 <footer>
 <?php include 'footer.php' ?>
 </footer>

@@ -17,7 +17,7 @@
                     <a class="nav-link" href="index.php">Pàgina principal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?r=consulta">Consulta d'inscripcions</a>
+                    <a id="obrir" class="nav-link">Consulta d'inscripcions</a>
                 </li>
                 
                 
